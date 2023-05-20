@@ -33,9 +33,36 @@ public class HouseApi {
         model.addAttribute("agencyId",agencyId);
         return "/house/houseMainPage";
     }
+//    @GetMapping("/{houseId}/edit")
+//    public String edit(@PathVariable Long houseId,Model model){
+//        House house = houseService.getHouseById(houseId);
+//        model.addAttribute("house", house);
+//        model.addAttribute("houseId", house.getId());
+//        return "/house/updateHouse";
+//    }
+//    @PutMapping("/update/{houseId}")
+//    public String update(@PathVariable Long houseId,
+//                         @PathVariable Long agencyId,
+//                         @ModelAttribute("house") House house) {
+//        houseService.updateHouse(houseId, agencyId,house);
+//        return "redirect:/houses" + agencyId;
+//    }
+
     @GetMapping("/{houseId}/edit")
-    public String edit(@PathVariable Long houseId,Model model){
-        model.addAttribute("house",houseService.getHouseById(houseId));
+    public String edit(@PathVariable("houseId") Long houseId,
+                       Model model,
+                       @PathVariable Long agencyId) {
+        House house = houseService.getHouseById(houseId);
+        model.addAttribute("house", house);
+        model.addAttribute("agencyId", agencyId);
         return "/house/updateHouse";
+    }
+
+    @PutMapping("/{houseId}/update")
+    public String update(@ModelAttribute("house") House house,
+                         @PathVariable("houseId") Long houseId,
+                         @PathVariable("agencyId") Long agencyId) {
+        houseService.updateHouse(houseId, house);
+        return "redirect:/houses/" + agencyId;
     }
 }

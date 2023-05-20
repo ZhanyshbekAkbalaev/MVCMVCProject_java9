@@ -23,7 +23,7 @@
         <p class="card-text" th:text="${house.description}">Description</p>
         <p class="card-text" th:text="${house.isBooked}">Is Booked</p>
 
-        <form th:method="GET" th:action="@{houses/{houseId}/edit(houseId=${house.id})}">
+        <form th:method="GET" th:action="@{/houses/{agencyId}/{houseId}/edit(agencyId=${agencyId}, houseId=${house.id})}">
             <input type="submit" th:value="Update" class="btn btn-primary">
         </form>
 
