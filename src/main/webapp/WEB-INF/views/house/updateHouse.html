@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update House</title>
+</head>
+<body>
+
+<form th:object="${house}" th:method="PUT" th:action="@{/houses/update/{houseId}(houseId=${houseId})}">
+  <div class="container">
+    <hr>
+
+    <label for="houseType"><b>Agency name</b></label>
+    <input type="text" placeholder="Enter House Type" th:field="*{houseType}" name="houseType" id="houseType" required>
+
+    <label for="address"><b>Address</b></label>
+    <input type="text" placeholder="Enter Address" th:field="*{address}" name="address" id="address"
+           required>
+
+    <label for="price"><b>Price</b></label>
+    <input type="text" placeholder="Enter Price" th:field="*{price}" name="price" id="price"
+           required>
+
+    <label for="room"><b>Room</b></label>
+    <input type="text" placeholder="Enter Room" th:field="*{room}" name="room" id="room"
+           required>
+
+    <label for="country"><b>Country</b></label>
+    <input type="text" placeholder="Enter country" th:field="*{country}" name="country" id="country"
+           required>
+
+    <label for="image"><b>Image</b></label>
+    <input type="text" placeholder="Enter image" th:field="*{image}" name="image" id="image"
+           required>
+
+    <hr>
+    <button type="submit" class="registered">Update Company</button>
+  </div>
+</form>
+
+
+</body>
+</html>

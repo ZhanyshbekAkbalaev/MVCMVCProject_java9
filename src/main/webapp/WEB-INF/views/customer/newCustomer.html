@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>New Customers</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="@{save}" th:object="${newCustomer}">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" th:field="*{name}" id="name">
+    </div>
+
+    <div>
+        <label for="surname">Sur Name</label>
+        <input type="text" th:field="*{surName}" id="surname">
+    </div>
+
+    <div>
+        <label for="email">Email</label>
+        <input type="email" th:field="*{email}" id="email">
+    </div>
+    <div>
+        <label for="gender">Gender</label>
+        <input type="text" th:field="*{gender}" id="gender">
+    </div>
+
+    <div>
+        <label for="phone number">Phone Number</label>
+        <input type="text" th:field="*{phoneNumber}" id="phone number">
+    </div>
+
+
+    <div>
+        <label for="date of birth">Date Of Birth</label>
+        <input type="date" th:field="*{dateOfBirth}" id="date of birth">
+    </div>
+
+    <button type="submit">Save Agency</button>
+
+</form>
+
+</body>
+</html>
