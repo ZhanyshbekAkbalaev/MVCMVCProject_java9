@@ -89,23 +89,4 @@ public class AgencyRepositoryImpl implements AgencyRepository {
         Agency agency2 = entityManager.find(Agency.class, agencyId);
         entityManager.remove(agency2);
     }
-//        try {
-//            boolean isFalse = false;
-//            for (Agency agency1 : getAllAgency()) {
-//                if (Objects.equals(agency1.getId(), agencyId)) {
-//                    isFalse =false;
-//                }
-//                if (isFalse) {
-//                    Agency agency = entityManager.find(Agency.class, agencyId);
-//                    entityManager.remove(agency);
-//                    isFalse=true;
-//                } else {
-//                    throw new MyException("Agency by Id : " + agencyId + " not found!");
-//                }
-//            }
-//        } catch (MyException e) {
-//            System.out.println(e.getMessage());
-//        }
-//
-//    }
 }

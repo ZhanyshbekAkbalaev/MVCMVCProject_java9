@@ -15,7 +15,7 @@
 <div class="card" style="width: 18rem;" th:each="house:${houses}">
     <img th:src="${house.getImage()}" class="card-img-top" alt="Company's Image">
     <div class="card-body">
-        <h5 class="card-title" th:text="${house.houseType}">House Type</h5>
+        <h5 class="card-title" th:text="${house.houseType.name()}">House Type</h5>
         <p class="card-text" th:text="${house.address}">Address</p>
         <p class="card-text" th:text="${house.price}">Price</p>
         <p class="card-text" th:text="${house.room}">Room</p>
@@ -27,6 +27,11 @@
             <input type="submit" th:value="Update" class="btn btn-primary">
         </form>
 
+        <div class="home col-12">
+            <form class="deleteButton" th:method="GET" th:action="@{/houses/{agencyId}/{houseId}/deleteHouse (agencyId=${agencyId},houseId=${house.id})}">
+                <input type="submit" th:value="Delete">
+            </form>
+        </div>
 
 </tr>
 
@@ -34,7 +39,7 @@
 </div>
 <div style="text-align: center">
     <a th:href="@{/houses/{agencyId}/new(agencyId=${agencyId})}">
-        <button class="btn btn-primary"> Add new House </button>
+        <button class="btn btn-primary"> Add New House </button>
     </a>
 </div>
 </div>

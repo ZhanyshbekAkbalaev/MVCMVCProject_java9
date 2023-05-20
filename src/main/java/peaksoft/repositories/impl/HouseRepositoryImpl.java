@@ -7,23 +7,29 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import peaksoft.entity.Agency;
 import peaksoft.entity.House;
+import peaksoft.exception.MyException;
+import peaksoft.repositories.AgencyRepository;
 import peaksoft.repositories.HouseRepository;
 
 import java.util.List;
+import java.util.Objects;
+
 @Repository
 @Transactional
 public class HouseRepositoryImpl implements HouseRepository {
     @PersistenceContext
     private final EntityManager entityManager;
+    private final AgencyRepository agencyRepository;
 
     @Autowired
-    public HouseRepositoryImpl(EntityManager entityManager) {
+    public HouseRepositoryImpl(EntityManager entityManager, AgencyRepository agencyRepository) {
         this.entityManager = entityManager;
+        this.agencyRepository = agencyRepository;
     }
 
 
     @Override
-    public void saveHouse(Long agencyId,House house) {
+    public void saveHouse(Long agencyId, House house) {
         Agency agency = entityManager.find(Agency.class, agencyId);
         agency.addHouse(house);
         house.setAgency(agency);
@@ -58,5 +64,7 @@ public class HouseRepositoryImpl implements HouseRepository {
 
     @Override
     public void deleteHouse(Long houseId) {
+        House house = entityManager.find(House.class, houseId);
+        house.setAgency(null);
     }
 }
