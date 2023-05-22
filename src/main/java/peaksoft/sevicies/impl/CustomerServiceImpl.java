@@ -17,18 +17,18 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void saveCustomer(Customer customer) {
-        customerRepository.saveCustomer(customer);
+    public void saveCustomer(Long agencyId,Customer customer) {
+        customerRepository.saveCustomer(agencyId,customer);
     }
 
     @Override
     public Customer getCustomerById(Long customerId) {
-        return null;
+        return customerRepository.getCustomerById(customerId);
     }
 
     @Override
-    public List<Customer> getAllCustomers() {
-        return customerRepository.getAllCustomers();
+    public List<Customer> getAllCustomers(Long agencyId) {
+        return customerRepository.getAllCustomers(agencyId);
     }
 
     @Override
@@ -37,12 +37,7 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public void deleteCustomerByID(Long customerId) {
-
-    }
-
-    @Override
-    public void assignCustomerToAgency(Long customerId, Long agencyId) {
+    public void deleteCustomerById(Long customerId) {
 
     }
 }

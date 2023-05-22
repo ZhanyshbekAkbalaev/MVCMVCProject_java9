@@ -33,7 +33,6 @@ public class HouseRepositoryImpl implements HouseRepository {
         Agency agency = entityManager.find(Agency.class, agencyId);
         agency.addHouse(house);
         house.setAgency(agency);
-        entityManager.persist(house);
     }
 
     @Override

@@ -14,17 +14,18 @@
         <input type="hidden" name="id" th:field="*{id}">
 
         <div>
-        <label for="house type"><b>House Type</b></label>
-        <input style="width: 100px; right: 100px " type="text" placeholder="Enter House Type" th:field="*{houseType}" name="houseType" id="house type" required>
-<!--            <div>-->
-<!--                <select th:field="*{houseType}">-->
-<!--                    <option th:value="${apartment}">APARTMENT</option>-->
-<!--                    <option th:value="${cottage}">COTTAGE</option>-->
-<!--                    <option th:value="${castle}">CASTLE</option>-->
-<!--                    <option th:value="${villa}">VILLA</option>-->
-<!--                </select>-->
-<!--            </div>-->
-    </div>
+        <<label for="house type"><b>House Type</b></label>
+            <div>
+                <select th:field="*{houseType} " name="houseType" id="house type" required>
+                    <option value="RANCH_STYLE">RANCH_STYLE</option>
+                    <option value="BUNGALOW">BUNGALOW</option>
+                    <option value="COTTAGE" >COTTAGE</option>
+                    <option value="TOWNHOUSE">TOWNHOUSE</option>
+                    <option value="AMERICAN_CRAFTSMAN">AMERICAN_CRAFTSMAN</option>
+                    <option value="DUTCH_COLONIAL">DUTCH_COLONIAL</option>
+                </select>
+            </div>
+        </div>
 
         <div>
         <label for="psw"><b>House Address</b></label>

@@ -6,10 +6,9 @@ import peaksoft.entity.Customer;
 import java.util.List;
 
 public interface CustomerRepository {
-    void saveCustomer(Customer customer);
+    void saveCustomer(Long agencyId,Customer customer);
     Customer getCustomerById(Long customerId);
-    List<Customer> getAllCustomers();
+    List<Customer> getAllCustomers(Long agencyId);
     void updateCustomer(Long customerId,Customer customer);
-    void deleteCustomerByID(Long customerId);
-    void assignCustomerToAgency(Long customerId,Long agencyId);
+    void deleteCustomerById(Long customerId);
 }
